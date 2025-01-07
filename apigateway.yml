@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+spring:
+  application:
+    name: apigateway-service
+  # rabbit MQ 설정
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    gateway:
+        routes:
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/**
+            filters:
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment} 
+
+          - id: product-service
+            uri: lb://PRODUCT-SERVICE
+            predicates:
+              - Path=/product-service/**
+            filters:
+              - RewritePath=/product-service/(?<segment>.*), /$\{segment}
+              - name: JwtFilter
+                args:
+                  requiredRole: "USER"
+              
+                  
+#          - id: user-service
+#            uri: lb://USER-SERVICE
+#            predicates:
+#              - Path=/user-service/**
+#            filters:
+##              - CustomFilter
+##              - AddResponseHeader=first-response, first-response-header2
+#jwt:
+#  secret:
+#    key: "7Iqk7YyM66W07YOA7L2U65Sp7YG065+9U3ByaW5n6rCV7J2Y7Yqc7YSw7LWc7JuQ67mI7J6F64uI64ukLg=="
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, refresh, beans, httpexchanges, busrefresh
+
+user_service:
+  url: "http://127.0.0.1:8080/user-service"
