@@ -1,0 +1,70 @@
+server:
+  port: 0
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: user-service
+  # rabbit MQ 설정
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ekdan31@gmail.com
+    password: vxehkqcbeepqhahc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+            pool: true
+          connectiontimeout: 1000
+          timeout: 1000
+          writetimeout: 1000
+    auth-code-expiration-millis: 600000 # 10?
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_service
+    username: user
+    password: password
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, busrefresh
+        
+aes:
+  secret-key : "W/Yts8dOTgVQ8c+YBy2e7w=="
+
