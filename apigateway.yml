@@ -35,7 +35,16 @@ spring:
               - name: JwtFilter
                 args:
                   requiredRole: "USER"
-              
+
+          - id: order-service
+            uri: lb://ORDER-SERVICE
+            predicates:
+              - Path=/order-service/**
+            filters:
+              - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+              - name: JwtFilter
+                args:
+                  requiredRole: "USER"              
                   
 #          - id: user-service
 #            uri: lb://USER-SERVICE
