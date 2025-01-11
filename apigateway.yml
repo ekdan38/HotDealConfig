@@ -44,18 +44,19 @@ spring:
               - RewritePath=/order-service/(?<segment>.*), /$\{segment}
               - name: JwtFilter
                 args:
-                  requiredRole: "USER"              
+                  requiredRole: "USER"    
+
+          - id: hotdeal-service
+            uri: lb://HOTDEAL-SERVICE
+            predicates:
+              - Path=/hotdeal-service/**
+            filters:
+              - RewritePath=/hotdeal-service/(?<segment>.*), /$\{segment}
+              - name: JwtFilter
+                args:
+                  requiredRole: "USER"       
+                  # 추후 관리자로만 제한              
                   
-#          - id: user-service
-#            uri: lb://USER-SERVICE
-#            predicates:
-#              - Path=/user-service/**
-#            filters:
-##              - CustomFilter
-##              - AddResponseHeader=first-response, first-response-header2
-#jwt:
-#  secret:
-#    key: "7Iqk7YyM66W07YOA7L2U65Sp7YG065+9U3ByaW5n6rCV7J2Y7Yqc7YSw7LWc7JuQ67mI7J6F64uI64ukLg=="
 
 management:
   endpoints:
