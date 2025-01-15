@@ -49,3 +49,4 @@ management:
 logging:
   level:
     com.hong.orderservice: DEBUG
+    io.github.resilience4j.retry: INFO
