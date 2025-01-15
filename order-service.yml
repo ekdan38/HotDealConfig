@@ -11,6 +11,11 @@ spring:
     username: guest
     password: guest
 
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+         
   datasource:
     url: jdbc:mysql://localhost:3306/order_service
     username: user
