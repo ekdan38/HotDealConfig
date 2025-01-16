@@ -11,6 +11,11 @@ spring:
     username: guest
     password: guest
 
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+
   datasource:
     url: jdbc:mysql://localhost:3306/hotdeal_service
     username: user
@@ -41,3 +46,4 @@ management:
 logging:
   level:
     com.hong.hotdealservice: DEBUG
+    io.github.resilience4j.retry: INFO
