@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: order-service
+    name: payment-service
   # rabbit MQ 설정
   rabbitmq:
     host: 127.0.0.1
@@ -17,7 +17,7 @@ spring:
         enabled: false
          
   datasource:
-    url: jdbc:mysql://localhost:3306/order_service
+    url: jdbc:mysql://localhost:3306/payment_service
     username: user
     password: password
   data:
@@ -50,3 +50,4 @@ logging:
   level:
     com.hong.orderservice: DEBUG
     io.github.resilience4j.retry: INFO
+    
