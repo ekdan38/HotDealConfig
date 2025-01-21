@@ -55,7 +55,17 @@ spring:
               - name: JwtFilter
                 args:
                   requiredRole: "USER"       
-                  # 추후 관리자로만 제한              
+                  # 추후 관리자로만 제한          
+
+          - id: payment-service
+            uri: lb://PAYMENT-SERVICE
+            predicates:
+              - Path=/payment-service/**
+            filters:
+              - RewritePath=/payment-service/(?<segment>.*), /$\{segment}
+              - name: JwtFilter
+                args:
+                  requiredRole: "USER"       
                   
 
 management:
