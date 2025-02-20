@@ -43,5 +43,5 @@ management:
 
 logging:
   level:
-    org.springframework.cache:trace
+    org.springframework.cache: trace
     com.hong.productservice: DEBUG
