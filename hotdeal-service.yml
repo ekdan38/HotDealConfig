@@ -48,5 +48,6 @@ management:
 
 logging:
   level:
+    org.springframework.cache: trace
     com.hong.hotdealservice: DEBUG
     io.github.resilience4j.retry: INFO
