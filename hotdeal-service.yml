@@ -50,4 +50,5 @@ logging:
   level:
     org.springframework.cache: trace
     com.hong.hotdealservice: DEBUG
+    com.hong.hotdealservice.client: DEBUG
     io.github.resilience4j.retry: INFO
