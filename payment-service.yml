@@ -48,7 +48,7 @@ management:
 
 logging:
   level:
-    com.hong.orderservice: DEBUG
-    com.hong.orderservice.client: DEBUG
+    com.hong.paymentservice: DEBUG
+    com.hong.paymentservice.client: DEBUG
     io.github.resilience4j.retry: INFO
     
