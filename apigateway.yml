@@ -26,6 +26,16 @@ spring:
             filters:
               - RewritePath=/user-service/(?<segment>.*), /$\{segment} 
 
+          - id: user-service-protected
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/users**  
+            filters:
+              - RewritePath=/user-service/(?<segment>.*), /${segment}
+              - name: JwtFilter
+                args:
+                  requiredRole: "USER"
+
           - id: product-service
             uri: lb://PRODUCT-SERVICE
             predicates:
