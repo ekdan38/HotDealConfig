@@ -19,13 +19,6 @@ spring:
   cloud:
     gateway:
         routes:
-          - id: user-service
-            uri: lb://USER-SERVICE
-            predicates:
-              - Path=/user-service/**
-            filters:
-              - RewritePath=/user-service/(?<segment>.*), /$\{segment} 
-
           - id: user-service-protected
             uri: lb://USER-SERVICE
             predicates:
@@ -36,6 +29,15 @@ spring:
                 args:
                   requiredRole: "USER"
 
+        
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/**
+            filters:
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment} 
+
+              
           - id: product-service
             uri: lb://PRODUCT-SERVICE
             predicates:
