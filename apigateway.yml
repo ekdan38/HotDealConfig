@@ -29,7 +29,7 @@ spring:
           - id: user-service-protected
             uri: lb://USER-SERVICE
             predicates:
-              - Path=/user-service/users/**  
+              - Path=/user-service/protect/**
             filters:
               - RewritePath=/user-service/(?<segment>.*), /${segment}
               - name: JwtFilter
