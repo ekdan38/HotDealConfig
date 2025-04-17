@@ -58,7 +58,8 @@ logging:
     com.hong.hotdealservice: DEBUG
     com.hong.hotdealservice.client: DEBUG
     io.github.resilience4j.retry: INFO
-
+    com.zaxxer.hikari: TRACE
+    com.zaxxer.hikari.HikariConfig: DEBUG
 
 # resilience4j:
 #   retry:
