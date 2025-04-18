@@ -37,8 +37,8 @@ spring:
     url: jdbc:mysql://localhost:3306/user_service
     username: user
     password: password
-    # hikari:
-    #   register-mbeans: true
+    hikari:
+      register-mbeans: true
     #   maximum-pool-size: 20       # 최대 커넥션 수 (기본값 10)
     #   minimum-idle: 10             # 최소 대기 커넥션 수
   data:
