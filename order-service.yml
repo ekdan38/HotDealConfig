@@ -21,11 +21,9 @@ spring:
     username: user
     password: password
     hikari:
-      maximum-pool-size: 16         
-      minimum-idle: 10             
-      idle-timeout: 600000       
-      max-lifetime: 1800000      
-      connection-timeout: 30000
+      register-mbeans: true
+    #   maximum-pool-size: 20       # 최대 커넥션 수 (기본값 10)
+    #   minimum-idle: 10             # 최소 대기 커넥션 수
   data:
     redis:
       host: localhost
@@ -57,3 +55,5 @@ logging:
     com.hong.orderservice: DEBUG
     com.hong.orderservice.client: DEBUG
     io.github.resilience4j.retry: INFO
+    com.zaxxer.hikari: TRACE
+    com.zaxxer.hikari.HikariConfig: DEBUG

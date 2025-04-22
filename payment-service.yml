@@ -20,6 +20,10 @@ spring:
     url: jdbc:mysql://localhost:3306/payment_service
     username: user
     password: password
+    hikari:
+      register-mbeans: true
+    #   maximum-pool-size: 20       # 최대 커넥션 수 (기본값 10)
+    #   minimum-idle: 10             # 최소 대기 커넥션 수
   data:
     redis:
       host: localhost
@@ -51,4 +55,5 @@ logging:
     com.hong.paymentservice: DEBUG
     com.hong.paymentservice.client: DEBUG
     io.github.resilience4j.retry: INFO
-    
+    com.zaxxer.hikari: TRACE
+    com.zaxxer.hikari.HikariConfig: DEBUG
