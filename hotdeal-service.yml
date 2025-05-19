@@ -22,7 +22,7 @@ spring:
     password: password
     hikari:
       register-mbeans: true
-      maximum-pool-size: 20       # 최대 커넥션 수 (기본값 10)
+      maximum-pool-size: 15       # 최대 커넥션 수 (기본값 10)
       minimum-idle: 10             # 최소 대기 커넥션 수
   data:
     redis:
