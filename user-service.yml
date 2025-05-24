@@ -74,5 +74,6 @@ aes:
 
 logging:
   level:
+    org.springframework.cache: trace
     com.zaxxer.hikari: TRACE
     com.zaxxer.hikari.HikariConfig: DEBUG
