@@ -36,11 +36,11 @@ spring:
         format_sql: true
         show_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
-        jdbc:
-          batch_size: 500
-          order_inserts: true
-          order_updates: true
-          batch_versioned_data: true
+        # jdbc:
+        #   batch_size: 500
+        #   order_inserts: true
+        #   order_updates: true
+        #   batch_versioned_data: true
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -61,6 +61,6 @@ logging:
     io.github.resilience4j.retry: INFO
     com.zaxxer.hikari: TRACE
     com.zaxxer.hikari.HikariConfig: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.engine.jdbc.batch.internal.BatchingBatch: DEBUG
+    # org.hibernate.SQL: DEBUG
+    # org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    # org.hibernate.engine.jdbc.batch.internal.BatchingBatch: DEBUG
