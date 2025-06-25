@@ -37,7 +37,7 @@ spring:
         show_sql: false
         dialect: org.hibernate.dialect.MySQLDialect
         jdbc:
-          batch_size: 500
+          # batch_size: 500
 
 eureka:
   instance:
